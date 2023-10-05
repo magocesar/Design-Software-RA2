@@ -7,7 +7,7 @@ def page_not_found(e):
 
 @app.route('/')
 def index():
-    return render_template('homepage.html')
+    return render_template('homepage.html', title='Home')
 
 if __name__ == '__main__':
     app.run(debug=True)
