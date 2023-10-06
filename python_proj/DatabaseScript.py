@@ -1,10 +1,10 @@
 import mysql.connector
 from mysql.connector import Error
-class Database(object):
+class Db(object):
             
     def __new__(cls, *args, **kwargs):
         if not hasattr(cls, '_instance'):
-            cls._instance = super(Database, cls).__new__(cls, *args, **kwargs)
+            cls._instance = super(Db, cls).__new__(cls, *args, **kwargs)
             print("Creating Database instance")
         return cls._instance
 
@@ -51,7 +51,7 @@ class Database(object):
 
 
 if __name__ == '__main__':
-    Database = Database()
-    result = Database.select("cliente", None, "cpf", "0,3", "nome")
+    Database = Db()
+    result = Database.select("cliente", None, "cpf", "0,3")
     for x in result:
         print(x)
