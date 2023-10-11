@@ -1,28 +1,28 @@
 from flask import Flask, render_template, request, redirect, session
-from python_proj import Homepage
+from python_proj import Commun
 app = Flask(__name__, template_folder='templates')
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('index.html'), 404
+    return render_template('homepage.html'), 404
 
 @app.route('/homepage', methods=['GET'])
 def homepage():
 
+    currentPage = 1
+
     if request.args.get('page') != None:
         currentPage = int(request.args.get('page'))
-    else:
-        currentPage = 1
 
     if currentPage < 1:
         currentPage = 1
     
-    numberOfPages = Homepage.Homepage.calculateTotalPages()
+    numberOfPages = Commun.Commun.calcHomepagePages()
 
     if currentPage > numberOfPages:
         currentPage = numberOfPages
 
-    resultQuery = Homepage.Homepage.selectClient(currentPage)
+    resultQuery = Commun.Commun.HomepageQueryInit(currentPage)
     
     return render_template('homepage.html', currentPage=currentPage, numberOfPages=numberOfPages, resultQuery=resultQuery)
 
@@ -34,9 +34,20 @@ def signin():
 def novocliente():
     return render_template('novocliente.html', title='Novo Cliente')
 
-@app.route('/search')
+@app.route('/search', methods=['GET', 'POST'])
 def busca():
-    return render_template('search.html', title='Busca')
+    
+    if request.method == 'POST':
+        if request.form['search'] != None:
+            search = request.form['search']
+        else:
+            return redirect('/homepage')
+    else:
+        return redirect('/homepage')
+            
+    resultQuery = Commun.Commun.SearchQueryInit(search)
+
+    return render_template('search.html', resultQuery=resultQuery, search=search)
 
 if __name__ == '__main__':
     app.run(debug=True)

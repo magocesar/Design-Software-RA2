@@ -52,8 +52,8 @@
     </div>
 
     <div class="container mb-2rem">
-        <form action="" class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Procurar Usuário" aria-label="search">
+        <form action="/search" class="d-flex" role="search" method="POST">
+            <input class="form-control me-2" type="search" placeholder="Procurar Usuário" aria-label="search" name="search">
             <button class="btn btn-outline-success" type="submit">Procurar</button>
         </form>
     </div>
@@ -61,8 +61,8 @@
     <div class="container">
         <table class="table table-striped table-hover table-bordered">
         <caption>
-            <a href="/homepage?page={{currentPage - 1}}">Anterior</a>
-            <a href="/homepage?page={{currentPage + 1}}">Próximo</a>
+            <a href="{{ url_for('homepage', page=currentPage - 1) }}">Anterior</a>
+            <a href="{{ url_for('homepage', page=currentPage + 1) }}">Próximo</a>
         </caption>
             <thead>
                 <tr class="table">

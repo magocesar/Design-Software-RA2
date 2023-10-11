@@ -5,11 +5,11 @@ USE bd_design;
 CREATE TABLE IF NOT EXISTS Cliente(
     id_cliente INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
-    cep VARCHAR(12) NOT NULL,
+    cpf VARCHAR(100) NOT NULL,
+    telefone VARCHAR(100) NOT NULL,
+    cep VARCHAR(100) NOT NULL,
     numero INT NOT NULL,
-    complemento VARCHAR(32)
+    complemento VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS Adm(
@@ -59,4 +59,5 @@ INSERT INTO Cliente (nome, cpf, telefone, cep, numero, complemento) VALUES
 ('Beatriz Souza', '345.678.901-23', '(08) 4321-0987', '09876-543', 2727, 'Sala 1'),
 ('Eduardo Lima', '456.789.012-34', '(19) 3210-9876', '76543-210', 2828, 'Andar 1'),
 ('Tatiane Costa', '567.890.123-45', '(20) 2109-8765', '54321-098', 2929, 'Bloco A'),
-('Robson Santos', '678.901.234-56', '(31) 1098-7654', '21098-765', 3030, 'Apto 24');
+('Robson Santos', '678.901.234-56', '(31) 1098-7654', '21098-765', 3030, 'Apto 24'),
+('César Willian Pacheco', '075.775.379-50', '(47) 98906-5296', '89281-042', 169, 'Casa');
