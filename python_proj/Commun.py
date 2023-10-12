@@ -53,3 +53,4 @@ class Commun():
         result = db.select("cliente", f"nome like '%{search}%' or cpf like '%{search}%' or telefone like '%{search}%' or cep like '%{search}%'", None, f"{0}, {20}", "id_cliente, nome, cpf, telefone, cep")
         return result
     
+    

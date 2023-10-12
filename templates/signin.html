@@ -20,12 +20,12 @@
 <body>
   <div class="container height-100vh center">
     <div style="align-items: center;">
-      <form action="http://127.0.0.1:5000/homepage">
+      <form action="/login" method="POST">
         <div class="mb-3">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Login">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Login" name="login">
         </div>
         <div class="mb-3">
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="senha">
         </div>
         <button class="btn btn-outline-success" type="submit">Entrar</button>
       </form>

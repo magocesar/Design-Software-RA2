@@ -48,10 +48,3 @@ class Db(object):
         
         except Error as e:
             print("Error")
-
-
-if __name__ == '__main__':
-    Database = Db()
-    result = Database.select("cliente", None, "cpf", "0,3")
-    for x in result:
-        print(x)
